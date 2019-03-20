@@ -1,4 +1,5 @@
 require "boxing/kata/version"
+require 'csv'
 
 module Boxing
   module Kata
@@ -8,7 +9,9 @@ module Boxing
         puts "Usage: ruby ./bin/boxing-kata <spec/fixtures/family_preferences.csv"
       end
 
-      # Starting point for your code...
+      table = CSV.read(ARGV[0], headers: true)
+      preferences = PreferencesLoader.new().generate_preferences_hash(table)
+      puts preferences
     end
 
     def self.has_input_file?
