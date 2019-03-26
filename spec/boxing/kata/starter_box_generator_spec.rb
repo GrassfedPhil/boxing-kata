@@ -10,4 +10,9 @@ describe StarterBoxGenerator do
     expect(STDOUT).to receive(:puts).with("STARTER BOX\n1 green brush\n1 green replacement head")
     StarterBoxGenerator.new().get_boxes_for_preferences({"blue": 3, "green": 2})
   end
+
+  it 'should handle unset preferences for a family' do
+    expect(STDOUT).to receive(:puts).with("NO STARTER BOXES GENERATED")
+    StarterBoxGenerator.new().get_boxes_for_preferences({})
+  end
 end

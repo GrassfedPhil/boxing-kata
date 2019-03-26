@@ -7,6 +7,10 @@ class StarterBoxGenerator
         value -= 1
       end
     end
+
+    if box.length == 0
+      puts "NO STARTER BOXES GENERATED"
+    end
     box.each_slice(2) do |a, b|
       if a == b
         puts "STARTER BOX\n2 #{a} brushes\n2 #{a} replacement heads"
